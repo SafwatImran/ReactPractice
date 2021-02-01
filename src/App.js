@@ -40,8 +40,10 @@ class App extends Component {
     this.setState( { showPersons: !doesShow } );
   }
   deletePersonHandler = (personIndex) =>{
-    const persons = this.state.persons;
+    //const persons = this.state.persons.slice(); <-this can be used as well 
+    const persons = [...this.state.persons]
     //splice removes the person from the state based on index, second number refers to how many to remove
+    // not best practice though
     persons.splice(personIndex,1);
     this.setState({persons : persons});
   }
